@@ -2,6 +2,7 @@ package com.luketowell.depinjection;
 
 import com.luketowell.depinjection.controllers.ConstructorInjectedController;
 import com.luketowell.depinjection.controllers.MyController;
+import com.luketowell.depinjection.controllers.PrimaryInjectedController;
 import com.luketowell.depinjection.controllers.PropertyInjectedController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -30,6 +31,11 @@ public class DepinjectionApplication {
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
 
 		System.out.println(constructorInjectedController.getGreeting());
+
+		System.out.println("________ Primary ________");
+
+		PrimaryInjectedController primaryInjectedController = (PrimaryInjectedController) ctx.getBean("primaryInjectedController");
+		System.out.println(primaryInjectedController.getGreeting());
 	}
 
 }
