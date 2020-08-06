@@ -1,12 +1,11 @@
 package com.luketowell.depinjection;
 
-import com.luketowell.depinjection.controllers.ConstructorInjectedController;
-import com.luketowell.depinjection.controllers.MyController;
-import com.luketowell.depinjection.controllers.PrimaryInjectedController;
-import com.luketowell.depinjection.controllers.PropertyInjectedController;
+import com.luketowell.depinjection.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+
+import java.sql.SQLOutput;
 
 @SpringBootApplication
 public class DepinjectionApplication {
@@ -36,6 +35,10 @@ public class DepinjectionApplication {
 
 		PrimaryInjectedController primaryInjectedController = (PrimaryInjectedController) ctx.getBean("primaryInjectedController");
 		System.out.println(primaryInjectedController.getGreeting());
+
+		System.out.println("________ I18n Services ________");
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.getGreeting());
 	}
 
 }
